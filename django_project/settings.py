@@ -24,7 +24,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -57,10 +57,10 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'django',
         'USER': 'django',
-        'PASSWORD': 'DWc9QBWP6k',
+        'PASSWORD': '4oyyr6dODq',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -80,7 +80,18 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
+# Static fi{% static 'images/logo_tag.png' %}les (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
+PROJECT_DIR = os.path.dirname(__file__)
+
+# comment STATIC_ROOT For development, uncomment when pushing to server
+STATIC_ROOT = '/home/django/django_project/django_project/static'
+
 
 STATIC_URL = '/static/'
+
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, "templates"),)
+print TEMPLATE_DIRS
+
+# uncomment for development, comment when pushing to server
+# STATICFILES_DIRS = (os.path.join('django_project/static'), )
